@@ -1,0 +1,11 @@
+
+services:
+  kea-dhcp4:
+    image: docker.cloudsmith.io/isc/docker/kea-dhcp4:2.6.0
+    container_name: kea-dhcp4
+    network_mode: "host"
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - ./ConfigDHCP/kea-dhcp4.conf:/etc/kea/kea-dhcp4.conf:ro
+      - ./ConfigDHCP/logs:/var/log/kea
